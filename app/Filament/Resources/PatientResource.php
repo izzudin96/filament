@@ -4,6 +4,8 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\PatientResource\Pages;
 use App\Models\Patient;
+use Filament\Forms\Components\Checkbox;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Wizard;
 use Filament\Forms\Form;
@@ -30,6 +32,9 @@ class PatientResource extends Resource
                             TextInput::make('input_2'),
                             TextInput::make('input_3'),
                             TextInput::make('input_4'),
+                            FileUpload::make('attachment_1')->maxFiles(10)->multiple(),
+                            Checkbox::make('check'),
+                            FileUpload::make('attachment_2')->maxFiles(20)->multiple(),
                         ]),
                     Wizard\Step::make('Delivery')
                         ->schema([
